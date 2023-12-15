@@ -1,28 +1,37 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View,  ScrollView } from 'react-native';
 
 export default function App() {
-  const [name, setName] = useState('Efe');
-  const [age, setAge] = useState('30');
+  const [people, setPeople] = useState([
+    { name: 'shaun', id: '1' },
+    { name: 'yoshi', id: '2' },
+    { name: 'mario', id: '3' },
+    { name: 'luigi', id: '4' },
+    { name: 'peach', id: '5' },
+    { name: 'toad', id: '6' },
+    { name: 'bowser', id: '7' },
+    { name: 'guy', id: '8' },
+    { name: 'bones', id: '9' },
+    { name: 'jones', id: '10' },
+    { name: 'gunn', id: '11' },
+  ]);
 
   return (
     <View style={styles.container}>
 
-      <Text>Enter name:</Text>
-      <TextInput 
-        multiline
-        placeholder='e.g. John Doe' 
-        style={styles.input}
-        onChangeText={(value) => setName(value)} />
+      <ScrollView>
+          { people.map(item => (
+              <View Key={item.key}>
+                <Text style={styles.item}>{item.name}</Text>
+              </View>
+            ))}
+          
+          
+            
+      
+        
+      </ScrollView> 
 
-      <Text>Enter age:</Text>
-      <TextInput 
-        keyboardType='numeric'
-        placeholder='e.g. 99' 
-        style={styles.input}
-        onChangeText={(value) => setAge(value)} />
-
-      <Text style={styles.result}>name: {name}, age: {age}</Text>
     </View>
   );
 }
@@ -30,15 +39,16 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: 40,
+    paddingHorizontal: 20,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#777',
-    padding: 8,
-    margin: 10,
-    width: 200,
-  }
+  item: {
+    flex: 1,
+    marginHorizontal: 10,
+    marginTop: 24,
+    padding: 30,
+    backgroundColor: 'pink',
+    fontSize: 24,
+  },
 });
