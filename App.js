@@ -3,11 +3,11 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('shaun');
-  const [person, setPerson] = useState({ name: 'mario', age: 40 });
+  const [person, setPerson] = useState({ name: 'Blaq', age: 40 });
 
   const clickHandler = () => {
     setName('chun-li');
-    setPerson({ name: 'luigi', age: 45 });
+    setPerson({ name: 'Efe', age: 45 });
   };
 
   return (
