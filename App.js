@@ -42,5 +42,3 @@ const styles = StyleSheet.create({
     width: 200,
   }
 });
-
-m
